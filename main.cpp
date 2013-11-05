@@ -42,11 +42,9 @@ public:
     int altura () { return niveles(raiz); }
     bool existe( int dato){ return checar( raiz, dato);}
     void vaciar();
-    
-
     int getRaiz(){return raiz->info;}
 
-    double comparar (int comparaciones){ return promedioComparaciones(raiz ,comparaciones);}
+    double comparar (int comparaciones){ return promComp(raiz ,comparaciones);}
     int borrar(){libera(raiz);}
     ~ABB() { libera(raiz); }
     
@@ -67,13 +65,13 @@ void libera (NodoArbol<T>* raiz)
     }
 }
 template <class T>
-double promedioComparaciones (NodoArbol<T>* raiz, int comparaciones)
+double promComp (NodoArbol<T>* raiz, int comparaciones)
 {
     if (raiz != NULL) {
         return (
                 comparaciones
-                + promedioComparaciones(raiz->izq, comparaciones+1)
-                + promedioComparaciones(raiz->der, comparaciones+1)
+                + promComp(raiz->izq, comparaciones+1)
+                + promComp(raiz->der, comparaciones+1)
                 );
     }else{
         return 0;
