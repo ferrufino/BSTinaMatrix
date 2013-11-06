@@ -202,7 +202,7 @@ int main()
         cout<<"The average of the search in the BST is: "<<setprecision(3)<<ans <<endl;
         
         arbol.vaciar();
-        //arbol.borrar();
+        
 		cin>>dimensions;
 		numcase++;
 	}
